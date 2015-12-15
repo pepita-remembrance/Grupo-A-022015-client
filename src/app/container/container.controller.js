@@ -1,8 +1,7 @@
 export class ContainerController {
-  constructor($scope, $mdSidenav) {
+  constructor($scope) {
     'ngInject';
 
-    this.sideNav = $mdSidenav;
     this.options = {};
 
     $scope.setOptions = (opt)=>{
@@ -38,7 +37,6 @@ export class ContainerController {
   }
 
   togleDrawer(){
-    //this.sideNav('left').toggle();
     this.isDrawerOpen = !this.isDrawerOpen ;
   }
 

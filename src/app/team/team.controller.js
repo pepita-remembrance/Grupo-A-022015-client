@@ -22,8 +22,7 @@ export class TeamController extends CoreController {
       });
 
     if($stateParams.id){
-      Restangular.one('teams', $stateParams.id).get()
-        .then((entity)=> { this.team = entity; });
+      Restangular.one('teams', $stateParams.id).get().then((entity)=> { this.team = entity; });
     }else{
       this.team = Restangular.restangularizeElement(null, {
         name:'',
