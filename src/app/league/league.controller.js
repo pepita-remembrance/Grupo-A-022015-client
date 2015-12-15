@@ -19,9 +19,16 @@ export class LeagueController extends CoreController {
 
     this.fetchEntities('teams');
     this.fetchEntities('players');
-    Restangular.one('leagues', $stateParams.id).get().then((entity)=> {
-      this.league = entity;
-    });
+    if($stateParams.id){
+      Restangular.one('leagues', $stateParams.id).get().then((entity)=> {
+        this.league = entity;
+      });
+    }else{
+      this.league = Restangular.restangularizeElement(null, {
+        name:'',
+        stages:[]
+      }, 'leagues')
+    }
   }
 
   querySearch(query, target) {

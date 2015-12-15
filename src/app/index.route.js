@@ -83,6 +83,17 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       }
     })
 
+    .state('newLeague', {
+      url: '/leagues/new',
+      parent:'container',
+      templateUrl: 'app/league/league.html',
+      controller: 'LeagueController',
+      controllerAs: 'leagueCtrl',
+      data: {
+        requiresLogin: true
+      }
+    })
+
     .state('login', {
       url: '/login',
       controller: 'LoginController',
