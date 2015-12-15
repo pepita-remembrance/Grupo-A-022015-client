@@ -9,8 +9,8 @@ export class LeaguesController extends CoreController {
     this.parent.setOptions({
       title:'Leagues',
       addButton:{
-        onCLick:()=>{
-
+        click:()=>{
+          $state.go('newLeague');
         }
       }
     });
