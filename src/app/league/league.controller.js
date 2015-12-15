@@ -56,7 +56,11 @@ export class LeagueController extends CoreController {
   }
 
   uploadCSV(stage){
-    //TODO: UPLOAD CSV
+    Restangular.customPOST({data:this.getCSV()}, `/stages/${stage.id}/import`);
+  }
+
+  getCSV(){
+    return "";
   }
 
 }
