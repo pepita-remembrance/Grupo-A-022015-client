@@ -1,5 +1,3 @@
-import { CoreController }    from '../core/core.controller';
-
 export class LoginController {
   constructor ($scope, auth, store, $location, $log) {
     'ngInject';
