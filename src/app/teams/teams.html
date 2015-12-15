@@ -2,16 +2,19 @@
 
   <md-card class="md-2-line" flex-gt-md="25" flex-md="100" ng-repeat="team in teamsCtrl.teams" layout-align="top center">
     <img ng-src="{{team.logoUrl || 'assets/svg/ic_group_white_24px.svg'}}" alt="{{team.name}}" class="md-card-image">
-    <span flex></span>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline">{{team.name}}</span>
+      </md-card-title-text>
+    </md-card-title>
     <md-card-content>
-      <h2 class="md-title">{{team.name}}</h2>
       <p>
         {{team.description}}
       </p>
     </md-card-content>
-    <div class="md-actions" layout="row" layout-align="end center">
+    <md-card-actions layout="column" layout-align="start">
       <md-button ng-click="teamsCtrl.openDetail(team.id)">OPEN</md-button>
-    </div>
+    </md-card-actions>
   </md-card>
 
 </div>
