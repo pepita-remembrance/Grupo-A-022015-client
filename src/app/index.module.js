@@ -3,6 +3,7 @@
 import { config       } from './index.config';
 import { routerConfig } from './index.route';
 import { authConfig   } from './index.auth';
+import { i18nConfig   } from './index.i18n';
 import { runBlock     } from './index.run';
 
 import { MainController      } from './main/main.controller';
@@ -25,12 +26,13 @@ import { onReadFile        } from '../app/components/onReadFile/onReadFile.direc
 angular.module('grupoA022015Client',
   ['ngAnimate','ngMdIcons', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria',
     'restangular', 'ui.router', 'ngMaterial', 'toastr', 'restangular', 'auth0',
-    'angular-storage', 'angular-jwt'])
+    'angular-storage', 'angular-jwt', 'pascalprecht.translate'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
   .config(authConfig)
   .config(routerConfig)
+  .config(i18nConfig)
   .run(runBlock)
 
   .service('githubContributor', GithubContributorService)

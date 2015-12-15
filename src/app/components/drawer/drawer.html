@@ -4,7 +4,7 @@
                 ng-class="{selected: entry.state==drawerCtrl.$state.$current}"
   >
     <div class="md-list-item-text">
-      <div ><h3>{{entry.name}}</h3></div>
+      <div ><h3>{{entry.name | translate}}</h3></div>
     </div>
     <md-divider inset></md-divider>
   </md-list-item>
@@ -13,5 +13,5 @@
 <span flex></span>
 
 <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-  <md-button class="md-raised md-warn" ng-click="drawerCtrl.logout()">Logout</md-button>
+  <md-button class="md-raised md-warn" ng-click="drawerCtrl.logout()">{{ 'Logout' | translate }}</md-button>
 </section>
