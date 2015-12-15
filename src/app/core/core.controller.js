@@ -1,6 +1,7 @@
 export class CoreController {
-  constructor ( Restangular) {
+  constructor ( Restangular, $scope) {
     'ngInject';
     this.api = Restangular;
+    this.parent = $scope;
   }
 }

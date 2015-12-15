@@ -1,11 +1,12 @@
 import { CoreController }    from '../core/core.controller';
 
 export class PlayersController extends CoreController {
-  constructor (Restangular) {
+  constructor (Restangular, $scope) {
     'ngInject';
-    super(Restangular);
+    super(Restangular, $scope);
 
     this.players = [];
+
     this.findPlayers();
   }
 

@@ -1,13 +1,15 @@
-<div layout="vertical" layout-fill>
-  <h2>Players</h2>
-  <md-list>
-    <md-list-item class="md-2-line" ng-repeat="player in playersCtrl.players">
-      <md-checkbox ng-model="item.done"></md-checkbox>
-      <div class="md-list-item-text">
-        <h3>{{player.name}}</h3>
-        <p>{{player.position}}</p>
-      </div>
-    </md-list-item>
-  </md-list>
-
-</div>
+<h2>{{containerCtrl.title}}</h2>
+<md-card>
+  <md-card-content>
+    <md-list>
+      <md-list-item class="md-2-line" ng-repeat="player in playersCtrl.players">
+        <md-checkbox ng-model="item.done"></md-checkbox>
+        <div class="md-list-item-text">
+          <h3>{{player.name}} {{playersCtrl.$scope.isShowPlusButton()}}</h3>
+          <p>{{player.position}}</p>
+        </div>
+        <md-divider inset></md-divider>
+      </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
