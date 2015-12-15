@@ -5,12 +5,17 @@
         <input ng-model="teamCtrl.team.name">
       </md-input-container>
       <span flex></span>
-      <md-button class="md-raised md-warn">SAVE</md-button>
+      <md-button class="md-raised md-warn" ng-click="teamCtrl.team.save()">SAVE</md-button>
     </div>
   </md-toolbar>
   <md-card-content>
 
     <img ng-src="{{teamCtrl.team.logoUrl || 'assets/svg/ic_group_white_24px.svg'}}" alt="{{team.name}}" class="md-card-image">
+
+    <md-input-container flex>
+      <label>Image URL</label>
+      <input ng-model="teamCtrl.team.logoUrl">
+    </md-input-container>
 
     <h3>PLAYERS</h3>
 
