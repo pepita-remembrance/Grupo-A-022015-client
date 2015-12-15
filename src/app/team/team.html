@@ -5,7 +5,7 @@
         <input ng-model="teamCtrl.team.name">
       </md-input-container>
       <span flex></span>
-      <md-button class="md-raised md-warn" ng-click="teamCtrl.team.save()">SAVE</md-button>
+      <md-button class="md-raised md-warn" ng-click="teamCtrl.team.save()"> {{ 'Save' | translate }}</md-button>
     </div>
   </md-toolbar>
   <md-card-content>
@@ -17,7 +17,7 @@
       <input ng-model="teamCtrl.team.logoUrl">
     </md-input-container>
 
-    <h3>PLAYERS</h3>
+    <h3>{{ 'Players' | translate }}</h3>
 
     <div layout="column" class="player-chips" ng-cloak>
       <md-content class="md-padding autocomplete" layout="column">
@@ -33,12 +33,12 @@
           placeholder="Search for players">
         </md-contact-chips>
         <md-list class="fixedRows">
-          <md-subheader class="md-no-sticky">Players</md-subheader>
+          <md-subheader class="md-no-sticky">{{ 'Players' | translate }}</md-subheader>
           <md-list-item ng-class="{selected:teamCtrl.team.players.indexOf(player) >= 0}" class="md-2-line contact-item" ng-repeat="(index, player) in teamCtrl.players">
             <img ng-src="{{player.image}}" class="md-avatar red-avatar" alt="{{player.name}}" />
             <div class="md-list-item-text compact">
               <h3>{{player.name}}</h3>
-              <p>{{player.position}}</p>
+              <p>{{player.position | translate}}</p>
             </div>
           </md-list-item>
         </md-list>
@@ -52,7 +52,7 @@
 <md-card>
   <md-toolbar>
     <div class="md-toolbar-tools">
-        <h3>SCORES</h3>
+        <h3>{{ 'Scores' | translate }}</h3>
     </div>
   </md-toolbar>
   <md-card-content>
@@ -60,7 +60,7 @@
       <md-list-item class="md-2-line" ng-repeat="item in teamCtrl.scores" ng-click="teamCtrl.goToLeague(item.league.id)">
         <div class="md-list-item-text">
           <h3>{{item.league.name}}</h3>
-          <p>SCORE: {{item.score}}</p>
+          <p>{{ 'Score' | translate }}: {{item.score}}</p>
         </div>
         <md-divider inset></md-divider>
       </md-list-item>
