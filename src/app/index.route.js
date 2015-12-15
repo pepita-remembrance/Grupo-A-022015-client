@@ -5,7 +5,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/container/container.html',
       controller: 'ContainerController',
-      controllerAs: 'containerCtrl'
+      controllerAs: 'containerCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('container', {
@@ -19,7 +22,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/players/players.html',
       controller: 'PlayersController',
-      controllerAs: 'playersCtrl'
+      controllerAs: 'playersCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('teams', {
@@ -27,7 +33,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/teams/teams.html',
       controller: 'TeamsController',
-      controllerAs: 'teamsCtrl'
+      controllerAs: 'teamsCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('team', {
@@ -35,7 +44,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/team/team.html',
       controller: 'TeamController',
-      controllerAs: 'teamCtrl'
+      controllerAs: 'teamCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('newTeam', {
@@ -43,7 +55,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/team/team.html',
       controller: 'TeamController',
-      controllerAs: 'teamCtrl'
+      controllerAs: 'teamCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('leagues', {
@@ -51,7 +66,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/leagues/leagues.html',
       controller: 'LeaguesController',
-      controllerAs: 'leaguesCtrl'
+      controllerAs: 'leaguesCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('league', {
@@ -59,7 +77,16 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/league/league.html',
       controller: 'LeagueController',
-      controllerAs: 'leagueCtrl'
+      controllerAs: 'leagueCtrl',
+      data: {
+        requiresLogin: true
+      }
+    })
+
+    .state('login', {
+      url: '/login',
+      controller: 'LoginController',
+      controllerAs: 'loginCtrl'
     })
 
   ;

@@ -16,10 +16,12 @@ export function DrawerDirective() {
 }
 
 class DrawerController {
-  constructor ($state) {
+  constructor ($state, auth, store) {
     'ngInject';
 
     this.$state = $state;
+    this.auth = auth;
+    this.store = store;
     this.entries = [
       {
         name:'Players',
@@ -35,6 +37,13 @@ class DrawerController {
         state:'leagues'
       }
     ]
+  }
+
+  logout() {
+    this.auth.signout();
+    this.store.remove('profile');
+    this.store.remove('token');
+    this.$state.go('login');
   }
 
   goToState(stateName){

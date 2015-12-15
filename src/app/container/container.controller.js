@@ -1,8 +1,10 @@
 export class ContainerController {
-  constructor($scope) {
+  constructor($scope, auth) {
     'ngInject';
 
     this.options = {};
+
+    this.profile = auth.profile;
 
     $scope.setOptions = (opt)=>{
       this.options = opt;
