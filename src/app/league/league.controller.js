@@ -54,4 +54,9 @@ export class LeagueController extends CoreController {
       return (team.name.toLowerCase().indexOf(lowercaseQuery) >= 0)
     };
   }
+
+  uploadCSV(stage){
+    //TODO: UPLOAD CSV
+  }
+
 }
