@@ -1,22 +1,29 @@
 export function i18nConfig ($translateProvider) {
   'ngInject';
-  $translateProvider.translations('en', {
+  $translateProvider
+
+  .translations('en', {
     'Leagues': 'Leagues',
     'Logout': 'Logout',
     'Name': 'Name',
     'Open': 'Open',
     'Players': 'Players',
     'Teams': 'Teams'
-  });
+  })
 
-  $translateProvider.translations('es', {
+  .translations('es', {
     'Leagues': 'Ligas',
     'Logout': 'Cerrar sesion',
     'Name': 'Nombre',
     'Open': 'Abrir',
     'Players': 'Jugadores',
     'Teams': 'Equipos'
-  });
+  })
 
-  $translateProvider.preferredLanguage('en');
+  .registerAvailableLanguageKeys(['en', 'es'], {
+    'en_*': 'en',
+    'es_*': 'es'
+  })
+
+  .determinePreferredLanguage();
 }
