@@ -56,11 +56,11 @@ export class LeagueController extends CoreController {
   }
 
   uploadCSV(stage){
-    Restangular.customPOST({data:this.getCSV()}, `/stages/${stage.id}/import`);
+    this.api.all('stages').customPOST({data:this.getCSV()}, `/${stage.id}/import`);
   }
 
   getCSV(){
-    return "";
+    return "28\n1,Forward,3\n2,Midfielder,1";
   }
 
 }
