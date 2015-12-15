@@ -6,6 +6,7 @@ export class PlayersController extends CoreController {
     super(Restangular, $scope);
 
     this.players = [];
+    this.parent.setOptions({});
 
     this.findPlayers();
   }

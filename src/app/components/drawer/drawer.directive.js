@@ -19,16 +19,21 @@ class DrawerController {
   constructor ($state) {
     'ngInject';
 
+    this.$state = $state;
     this.entries = [
       {
         name:'Players',
-        icon:'',
-        onclick:()=>{$state.go('players')}
+        state:'players',
+        icon:''
       },{
         name:'Teams',
         icon:'',
-        onclick:()=>{$state.go('teams')}
+        state:'teams'
       }
     ]
+  }
+
+  goToState(stateName){
+    this.$state.go(stateName);
   }
 }

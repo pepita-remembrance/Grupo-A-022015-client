@@ -1,5 +1,5 @@
 <md-list>
-  <md-list-item class="md-1-line" ng-repeat="entry in drawerCtrl.entries" ng-click="entry.onclick()">
+  <md-list-item class="md-1-line" ng-repeat="entry in drawerCtrl.entries" ng-click="drawerCtrl.goToState(entry.state)">
     <div class="md-list-item-text">
       <div ><h3>{{entry.name}}</h3></div>
     </div>
