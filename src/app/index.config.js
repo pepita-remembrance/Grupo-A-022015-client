@@ -10,6 +10,6 @@ export function config ($logProvider, toastrConfig, RestangularProvider) {
   toastrConfig.preventDuplicates = true;
   toastrConfig.progressBar = true;
 
-  //RestangularProvider.setBaseUrl('http://10.9.0.151:8080/');
-  RestangularProvider.setBaseUrl('http://localhost:8080/');
+  RestangularProvider.setBaseUrl('http://10.9.6.137:8080/');
+  //RestangularProvider.setBaseUrl('http://localhost:8080/');
 }

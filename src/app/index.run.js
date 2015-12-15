@@ -1,4 +1,4 @@
-export function runBlock ($log, $rootScope, $location, store, jwtHelper, auth, Restangular) {
+export function runBlock ($log, $rootScope, $location, store, jwtHelper, auth, Restangular,  $mdToast) {
   'ngInject';
   $log.debug('runBlock end');
   const playerIcon = {
@@ -10,6 +10,21 @@ export function runBlock ($log, $rootScope, $location, store, jwtHelper, auth, R
 
   Restangular.setDefaultHttpFields({cache: false});
   auth.hookEvents();
+
+  Restangular.setErrorInterceptor(function(response) {
+    if(response.status >= 400) {
+
+      var toast = $mdToast.simple()
+        .textContent(response.data.message)
+        .action('ERROR')
+        .highlightAction(false);
+      $mdToast.show(toast);
+
+      return false; // error handled
+    }
+
+    return true; // error not handled
+  });
 
   $rootScope.$on('$locationChangeStart', function() {
     var token = store.get('token');
