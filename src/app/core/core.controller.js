@@ -12,4 +12,12 @@ export class CoreController {
         this[entityName] = entities;
       });
   }
+
+  fetch(type,id, withName=type){
+    this[withName] = {};
+    this.api.one(type, id).get()
+      .then((entity)=> {
+        this[withName] = entity;
+      });
+  }
 }

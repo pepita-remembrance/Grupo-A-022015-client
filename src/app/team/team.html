@@ -1,0 +1,46 @@
+<md-card>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-input-container class="team-title">
+        <input ng-model="teamCtrl.team.name">
+      </md-input-container>
+      <span flex></span>
+      <md-button class="md-raised md-warn">SAVE</md-button>
+    </div>
+  </md-toolbar>
+  <md-card-content>
+
+    <img ng-src="{{teamCtrl.team.logoUrl || 'assets/svg/ic_group_white_24px.svg'}}" alt="{{team.name}}" class="md-card-image">
+
+    <h3>PLAYERS</h3>
+
+    <div layout="column" class="player-chips" ng-cloak>
+      <md-content class="md-padding autocomplete" layout="column">
+        <md-contact-chips
+          ng-model="teamCtrl.team.players"
+          md-contacts="teamCtrl.querySearch($query)"
+          md-contact-name="name"
+          md-contact-image="image"
+          md-contact-email="position"
+          md-require-match="true"
+          md-highlight-flags="i"
+          <!--filter-selected="teamCtrl.selectedItem"-->
+          placeholder="Search for players">
+        </md-contact-chips>
+        <md-list class="fixedRows">
+          <md-subheader class="md-no-sticky">Players</md-subheader>
+          <md-list-item ng-class="{selected:teamCtrl.team.players.indexOf(player) >= 0}" class="md-2-line contact-item" ng-repeat="(index, player) in teamCtrl.players">
+            <img ng-src="{{teamCtrl.getIconFor(player.position)}}" class="md-avatar red-avatar" alt="{{player.name}}" />
+            <div class="md-list-item-text compact">
+              <h3>{{player.name}}</h3>
+              <p>{{player.position}}</p>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </div>
+
+
+  </md-card-content>
+</md-card>
+

@@ -30,6 +30,14 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'teamsCtrl'
     })
 
+    .state('team', {
+      url: '/teams/:id',
+      parent:'container',
+      templateUrl: 'app/team/team.html',
+      controller: 'TeamController',
+      controllerAs: 'teamCtrl'
+    })
+
     .state('leagues', {
       url: '/leagues',
       parent:'container',
