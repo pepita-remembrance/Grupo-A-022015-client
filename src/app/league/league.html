@@ -1,0 +1,61 @@
+<md-card>
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-input-container class="team-title">
+        <input ng-model="leagueCtrl.league.name">
+      </md-input-container>
+      <span flex></span>
+      <md-button class="md-raised md-warn" ng-click="leagueCtrl.league.save()">SAVE</md-button>
+    </div>
+  </md-toolbar>
+  <md-card-content>
+    <div layout layout-padding="20px" layout-md="column">
+      <md-input-container flex>
+        <label>Min Teams</label>
+        <input ng-model="leagueCtrl.league.minTeams" placeholder="00" type="number" step="any" name="minTeams" min="2"
+               max="100" >
+      </md-input-container>
+      <md-input-container flex>
+        <label>Max Teams</label>
+        <input ng-model="leagueCtrl.league.maxTeams" placeholder="00" type="number" step="any" name="maxTeams" min="2"
+               max="100" >
+      </md-input-container>
+    </div>
+  </md-card-content>
+</md-card>
+
+<md-card>
+  <md-card-content>
+
+    <h3>TEAMS</h3>
+
+    <div layout="column" class="team-chips" ng-cloak>
+      <md-content class="md-padding autocomplete" layout="column">
+        <md-contact-chips
+          ng-model="leagueCtrl.league.teams"
+          md-contacts="leagueCtrl.querySearch($query)"
+          md-contact-name="name"
+          md-contact-image="logoUrl"
+          md-contact-email="position"
+          md-require-match="true"
+          md-highlight-flags="i"
+          placeholder="Search for teams">
+        </md-contact-chips>
+        <md-list class="fixedRows">
+          <md-subheader class="md-no-sticky">teams</md-subheader>
+          <md-list-item ng-class="{selected:leagueCtrl.team.league.indexOf(team) >= 0}" class="md-1-line contact-item"
+                        ng-repeat="(index, team) in leagueCtrl.teams">
+            <img ng-src="{{team.logoUrl || 'assets/svg/ic_group_white_24px.svg'}}" class="md-avatar" alt="{{team.name}}"/>
+            <div class="md-list-item-text compact">
+              <h3>{{team.name}}</h3>
+            </div>
+          </md-list-item>
+        </md-list>
+      </md-content>
+    </div>
+
+
+  </md-card-content>
+</md-card>
+
