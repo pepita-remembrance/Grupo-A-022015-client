@@ -77,7 +77,10 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       parent:'container',
       templateUrl: 'app/league/league.html',
       controller: 'LeagueController',
-      controllerAs: 'leagueCtrl'
+      controllerAs: 'leagueCtrl',
+      data: {
+        requiresLogin: true
+      }
     })
 
     .state('login', {
