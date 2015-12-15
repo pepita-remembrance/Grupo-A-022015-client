@@ -1,5 +1,8 @@
-<md-list>
-  <md-list-item class="md-1-line" ng-repeat="entry in drawerCtrl.entries" ng-click="drawerCtrl.goToState(entry.state)">
+<md-list class="drawer-items-list">
+  <md-list-item class="md-1-line"
+                ng-repeat="entry in drawerCtrl.entries" ng-click="drawerCtrl.goToState(entry.state)"
+                ng-class="{selected: entry.state==drawerCtrl.$state.$current}"
+  >
     <div class="md-list-item-text">
       <div ><h3>{{entry.name}}</h3></div>
     </div>
