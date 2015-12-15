@@ -8,11 +8,7 @@ export class TeamsController extends CoreController {
     this.state = $state;
 
     this.parent.setOptions({
-      addButton:{
-        onCLick:()=>{
-
-        }
-      }
+      addButton:{ click:()=>{ $state.go('newTeam'); } }
     });
 
     this.fetchEntities('teams')

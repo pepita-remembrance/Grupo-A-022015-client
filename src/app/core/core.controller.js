@@ -3,6 +3,15 @@ export class CoreController {
     'ngInject';
     this.api = Restangular;
     this.parent = $scope;
+
+
+    this.playerIcon = {
+      "GOALKEEPER":"assets/svg/ic_gradient_white_18px.svg",
+      "DEFENDER":"assets/svg/ic_security_white_18px.svg",
+      "MIDFIELDER":"assets/svg/ic_compare_arrows_white_18px.svg",
+      "FORWARD":"assets/svg/ic_forward_white_18px.svg"
+    };
+
   }
 
   fetchEntities(entityName){

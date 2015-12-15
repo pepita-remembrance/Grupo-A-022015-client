@@ -4,13 +4,6 @@ export class TeamController extends CoreController {
   constructor (Restangular, $scope, $stateParams) { 'ngInject';
     super(Restangular, $scope);
 
-    this.playerIcon = {
-      "GOALKEEPER":"assets/svg/ic_gradient_white_18px.svg",
-      "DEFENDER":"assets/svg/ic_security_white_18px.svg",
-      "MIDFIELDER":"assets/svg/ic_compare_arrows_white_18px.svg",
-      "FORWARD":"assets/svg/ic_forward_white_18px.svg"
-    };
-
     this.parent.setOptions({ });
     this.selectedItem = null;
     this.searchText = "";
@@ -19,20 +12,25 @@ export class TeamController extends CoreController {
 
     const self = this;
     Restangular.extendModel('players', (model)=> {
-      //model.image =  self.getIconFor(model.position);
+      model.image =  self.getIconFor(model.position);
       return model;
     });
 
     this.api.all('players').getList()
       .then((players)=> {
-        players.forEach((e)=>{
-          e.image = self.getIconFor(e.position);
-          this.players.push(e);
-        });
+        this.players = players;
       });
 
-    Restangular.one('teams', $stateParams.id).get()
-      .then((entity)=> { this.team = entity; });
+    if($stateParams.id){
+      Restangular.one('teams', $stateParams.id).get()
+        .then((entity)=> { this.team = entity; });
+    }else{
+      this.team = Restangular.restangularizeElement(null, {
+        name:'',
+        players:[],
+        logoUrl:''
+      }, 'teams')
+    }
 
   }
 

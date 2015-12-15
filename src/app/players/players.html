@@ -1,5 +1,37 @@
 <h3>{{containerCtrl.options.title}}</h3>
+
 <md-card>
+  <div layout layout-padding="20px" layout-md="column">
+    <md-input-container flex>
+      <label>Name</label>
+      <input ng-model="playersCtrl.newPlayer.name">
+    </md-input-container>
+
+    <md-input-container flex>
+      <label>Position</label>
+      <md-select ng-model="playersCtrl.newPlayer.position">
+        <md-option ng-repeat="(k,v) in playersCtrl.playerIcon" value="{{k}}">
+          {{k}}
+        </md-option>
+      </md-select>
+    </md-input-container>
+    <md-input-container flex>
+      <label>Real World Team</label>
+      <input ng-model="playersCtrl.newPlayer.realWorldTeam" placeholder="Yupanqui">
+    </md-input-container>
+
+  </div>
+  <div class="md-actions" layout="row" layout-align="end center" layout-padding="20px">
+    <md-button class="md-raised md-warn" ng-click="playersCtrl.saveNewPlayer()">SAVE</md-button>
+  </div>
+
+</md-card>
+
+<md-card>
+
+
+
+
   <md-card-content>
     <md-list>
       <md-list-item class="md-2-line" ng-repeat="player in playersCtrl.players">
