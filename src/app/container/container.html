@@ -2,7 +2,7 @@
   <section layout="row" flex>
     <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="containerCtrl.isDrawerOpen">
       <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Supergol</h1>
+        <h1 class="md-toolbar-tools">{{containerCtrl.profile.name}}</span></h1>
       </md-toolbar>
       <md-content layout-padding>
         <drawer-items></drawer-items>
@@ -26,9 +26,7 @@
           <h3>
             <span>{{containerCtrl.options.title}}</span>
           </h3>
-          <span flex="65"></span>
-
-          <span>Bienvenido {{containerCtrl.profile.given_name}}!</span>
+          <span flex></span>
         </div>
 
       </md-toolbar>
