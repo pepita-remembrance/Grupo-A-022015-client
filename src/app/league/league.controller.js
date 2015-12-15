@@ -1,7 +1,7 @@
 import { CoreController }    from '../core/core.controller';
 
 export class LeagueController extends CoreController {
-  constructor(Restangular, $scope, $stateParams,$mdToast) {
+  constructor(Restangular, $scope, $stateParams, $mdToast) {
     'ngInject';
     super(Restangular, $scope);
     this.toast = $mdToast;
@@ -56,16 +56,11 @@ export class LeagueController extends CoreController {
     };
   }
 
-  uploadCSV(stage){
-    this.api.all('stages').customPOST({data:this.getCSV()}, `/${stage.id}/import`).then((response)=>{
+  uploadCSV(stage, csv){
+    this.api.all('stages').customPOST({data: csv}, `/${stage.id}/import`).then((response)=>{
       this.toast.show(this.toast.simple() .textContent(
         response.status == 'ok'? "IMPORT SUCCESSFUL" : "INVALID CSV"
       ));
     });
   }
-
-  getCSV(){
-    return "28\n1,Forward,3\n2,Midfielder,1";
-  }
-
 }

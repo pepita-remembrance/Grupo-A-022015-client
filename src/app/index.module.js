@@ -20,6 +20,7 @@ import { WebDevTecService         } from '../app/components/webDevTec/webDevTec.
 import { NavbarDirective   } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import { DrawerDirective   } from '../app/components/drawer/drawer.directive';
+import { onReadFile        } from '../app/components/onReadFile/onReadFile.directive';
 
 angular.module('grupoA022015Client',
   ['ngAnimate','ngMdIcons', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria',
@@ -46,4 +47,5 @@ angular.module('grupoA022015Client',
 
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
-  .directive('drawerItems', DrawerDirective);
+  .directive('drawerItems', DrawerDirective)
+  .directive('onReadFile', onReadFile);
