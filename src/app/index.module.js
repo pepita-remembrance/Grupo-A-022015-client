@@ -2,6 +2,7 @@
 
 import { config       } from './index.config';
 import { routerConfig } from './index.route';
+import { authConfig   } from './index.auth';
 import { runBlock     } from './index.run';
 
 import { MainController      } from './main/main.controller';
@@ -19,10 +20,14 @@ import { NavbarDirective   } from '../app/components/navbar/navbar.directive';
 import { MalarkeyDirective } from '../app/components/malarkey/malarkey.directive';
 import { DrawerDirective   } from '../app/components/drawer/drawer.directive';
 
-angular.module('grupoA022015Client', ['ngAnimate','ngMdIcons', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria', 'restangular', 'ui.router', 'ngMaterial', 'toastr', 'restangular'])
+angular.module('grupoA022015Client',
+  ['ngAnimate','ngMdIcons', 'ngCookies', 'ngSanitize', 'ngMessages', 'ngAria',
+    'restangular', 'ui.router', 'ngMaterial', 'toastr', 'restangular', 'auth0',
+    'angular-storage', 'angular-jwt'])
   .constant('malarkey', malarkey)
   .constant('moment', moment)
   .config(config)
+  .config(authConfig)
   .config(routerConfig)
   .run(runBlock)
 
