@@ -29,6 +29,10 @@ class DrawerController {
         name:'Teams',
         icon:'',
         state:'teams'
+      },{
+        name:'Leagues',
+        icon:'',
+        state:'leagues'
       }
     ]
   }

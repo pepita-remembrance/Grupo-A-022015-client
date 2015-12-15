@@ -1,11 +1,12 @@
 import { CoreController }    from '../core/core.controller';
 
-export class TeamsController extends CoreController {
+export class LeaguesController extends CoreController {
   constructor (Restangular, $scope) {
     'ngInject';
     super(Restangular, $scope);
 
     this.parent.setOptions({
+      title:'Leagues',
       addButton:{
         onCLick:()=>{
 
@@ -13,7 +14,7 @@ export class TeamsController extends CoreController {
       }
     });
 
-    this.fetchEntities('teams')
+    this.fetchEntities('leagues')
   }
 
 }

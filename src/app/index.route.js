@@ -30,6 +30,14 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'teamsCtrl'
     })
 
+    .state('leagues', {
+      url: '/leagues',
+      parent:'container',
+      templateUrl: 'app/leagues/leagues.html',
+      controller: 'LeaguesController',
+      controllerAs: 'leaguesCtrl'
+    })
+
   ;
 
   $urlRouterProvider.otherwise('/');

@@ -5,16 +5,10 @@ export class PlayersController extends CoreController {
     'ngInject';
     super(Restangular, $scope);
 
-    this.players = [];
-    this.parent.setOptions({});
+    this.parent.setOptions({
+      title:'Players'
+    });
 
-    this.findPlayers();
-  }
-
-  findPlayers(){
-    this.api.all('players').getList()
-      .then((players)=> {
-        this.players = players;
-      });
+    this.fetchEntities('players')
   }
 }

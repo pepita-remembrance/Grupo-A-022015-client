@@ -2,11 +2,11 @@
 <md-card>
   <md-card-content>
     <md-list>
-      <md-list-item class="md-2-line" ng-repeat="player in playersCtrl.players">
+      <md-list-item class="md-2-line" ng-repeat="league in leaguesCtrl.leagues">
         <md-checkbox ng-model="item.done"></md-checkbox>
         <div class="md-list-item-text">
-          <h3>{{player.name}}</h3>
-          <p>{{player.position}}</p>
+          <h3>{{league.name}} </h3>
+          <p>{{league.minTeams}} ~ {{league.maxTeams}}</p>
         </div>
         <md-divider inset></md-divider>
       </md-list-item>

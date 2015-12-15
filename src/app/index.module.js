@@ -8,6 +8,7 @@ import { MainController }    from './main/main.controller';
 import { PlayersController } from './players/players.controller';
 import { ContainerController } from './container/container.controller';
 import { TeamsController } from './teams/teams.controller';
+import { LeaguesController } from './leagues/leagues.controller';
 
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService } from '../app/components/webDevTec/webDevTec.service';
@@ -29,6 +30,7 @@ angular.module('grupoA022015Client', ['ngAnimate','ngMdIcons', 'ngCookies', 'ngS
   .controller('PlayersController', PlayersController)
   .controller('ContainerController', ContainerController)
   .controller('TeamsController', TeamsController)
+  .controller('LeaguesController', LeaguesController)
 
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)
