@@ -11,20 +11,47 @@ export class LeagueController extends CoreController {
 
     this.players = [];
 
-    this.api.all('players').getList()
-      .then((players)=> {
-        this.players = players;
-      });
-
     this.league = {
-      name:'',
-      stages:[]
+      name: '',
+      stages: []
     };
 
     this.fetchEntities('teams');
+    this.fetchEntities('players');
     Restangular.one('leagues', $stateParams.id).get().then((entity)=> {
       this.league = entity;
     });
   }
 
+  querySearch(query, target) {
+    return query ? target.filter(this.createFilterFor(query)) : [];
+  }
+
+  playerSearch(searchText) {
+    const players = this.players.filter((aPlayer)=>{
+      return aPlayer.name.indexOf(searchText) >= 0
+    });
+    return players;
+  }
+
+  playerSearchTextChange(searchText) {
+
+  }
+
+  addNewStage(){
+    this.league.stages.push({ goals:[] });
+  }
+
+  selectedPlayerChange(item, stage) {
+    if(!item) return;
+    if(!stage.goals.length ) stage.goals = [];
+    stage.goals.push({player:item, quantity:0});
+  }
+
+  createFilterFor(query) {
+    var lowercaseQuery = angular.lowercase(query);
+    return (team) => {
+      return (team.name.toLowerCase().indexOf(lowercaseQuery) >= 0)
+    };
+  }
 }

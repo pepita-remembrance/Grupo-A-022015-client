@@ -10,12 +10,6 @@ export class TeamController extends CoreController {
 
     this.players = [];
 
-    const self = this;
-    Restangular.extendModel('players', (model)=> {
-      model.image =  self.getIconFor(model.position);
-      return model;
-    });
-
     this.api.all('players').getList()
       .then((players)=> {
         this.players = players;

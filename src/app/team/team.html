@@ -35,7 +35,7 @@
         <md-list class="fixedRows">
           <md-subheader class="md-no-sticky">Players</md-subheader>
           <md-list-item ng-class="{selected:teamCtrl.team.players.indexOf(player) >= 0}" class="md-2-line contact-item" ng-repeat="(index, player) in teamCtrl.players">
-            <img ng-src="{{teamCtrl.getIconFor(player.position)}}" class="md-avatar red-avatar" alt="{{player.name}}" />
+            <img ng-src="{{player.image}}" class="md-avatar red-avatar" alt="{{player.name}}" />
             <div class="md-list-item-text compact">
               <h3>{{player.name}}</h3>
               <p>{{player.position}}</p>

@@ -14,12 +14,12 @@
       <md-input-container flex>
         <label>Min Teams</label>
         <input ng-model="leagueCtrl.league.minTeams" placeholder="00" type="number" step="any" name="minTeams" min="2"
-               max="100" >
+               max="100">
       </md-input-container>
       <md-input-container flex>
         <label>Max Teams</label>
         <input ng-model="leagueCtrl.league.maxTeams" placeholder="00" type="number" step="any" name="maxTeams" min="2"
-               max="100" >
+               max="100">
       </md-input-container>
     </div>
   </md-card-content>
@@ -28,13 +28,13 @@
 <md-card>
   <md-card-content>
 
-    <h3>TEAMS</h3>
+    <h3>TEAMS ({{leagueCtrl.league.teams.length}})</h3>
 
     <div layout="column" class="team-chips" ng-cloak>
       <md-content class="md-padding autocomplete" layout="column">
         <md-contact-chips
           ng-model="leagueCtrl.league.teams"
-          md-contacts="leagueCtrl.querySearch($query)"
+          md-contacts="leagueCtrl.querySearch($query,leagueCtrl.teams)"
           md-contact-name="name"
           md-contact-image="logoUrl"
           md-contact-email="position"
@@ -42,16 +42,6 @@
           md-highlight-flags="i"
           placeholder="Search for teams">
         </md-contact-chips>
-        <md-list class="fixedRows">
-          <md-subheader class="md-no-sticky">teams</md-subheader>
-          <md-list-item ng-class="{selected:leagueCtrl.team.league.indexOf(team) >= 0}" class="md-1-line contact-item"
-                        ng-repeat="(index, team) in leagueCtrl.teams">
-            <img ng-src="{{team.logoUrl || 'assets/svg/ic_group_white_24px.svg'}}" class="md-avatar" alt="{{team.name}}"/>
-            <div class="md-list-item-text compact">
-              <h3>{{team.name}}</h3>
-            </div>
-          </md-list-item>
-        </md-list>
       </md-content>
     </div>
 
@@ -59,3 +49,59 @@
   </md-card-content>
 </md-card>
 
+<md-card>
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-input-container class="team-title">
+        <h3>STAGES</h3>
+      </md-input-container>
+      <span flex></span>
+      <md-button class="md-raised md-warn" ng-click="leagueCtrl.addNewStage()">NEW</md-button>
+    </div>
+  </md-toolbar>
+
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab label="STAGE #{{i}}" ng-repeat="(i, stage) in leagueCtrl.league.stages" class="md-toolbar-tools">
+
+      <div>
+        <md-autocomplete
+          ng-disabled="leagueCtrl.isDisabled"
+          md-no-cache="true"
+          md-selected-item="leagueCtrl.selectedItem"
+          md-search-text-change="leagueCtrl.playerSearchTextChange(leagueCtrl.searchText)"
+          md-search-text="leagueCtrl.searchText"
+          md-selected-item-change="leagueCtrl.selectedPlayerChange(item,stage)"
+          md-items="item in leagueCtrl.playerSearch(leagueCtrl.searchText)"
+          md-item-text="item.name"
+          md-min-length="0"
+          placeholder="Pick a player"
+          md-menu-class="autocomplete-custom-template">
+          <md-item-template>
+            <md-list-item class="md-2-line">
+            <img ng-src="{{item.image}}" class="md-avatar red-avatar" alt="{{item.name}}"/>
+            <div class="md-list-item-text">
+              <h3>{{item.name}}</h3>
+              <p>{{item.position}}</p>
+            </div>
+            </md-list-item>
+          </md-item-template>
+        </md-autocomplete>
+      </div>
+
+      <md-card-content>
+        <md-list>
+          <md-list-item class="md-2-line" ng-repeat="goal in stage.goals">
+            <img ng-src="{{goal.player.image}}" class="md-avatar red-avatar" alt="{{goal.player.name}}"/>
+            <div class="md-list-item-text">
+              <h3>{{goal.player.name}}</h3>
+              <p>{{goal.player.position}}</p>
+            </div>
+            <md-divider inset></md-divider>
+          </md-list-item>
+        </md-list>
+      </md-card-content>
+      <md-button class="md-raised md-warn" ng-click="">SAVE</md-button>
+    </md-tab>
+
+  </md-tabs>
+</md-card>
