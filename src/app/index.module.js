@@ -12,6 +12,7 @@ import { TeamsController     } from './teams/teams.controller';
 import { LeaguesController   } from './leagues/leagues.controller';
 import { TeamController      } from './team/team.controller';
 import { LeagueController    } from './league/league.controller';
+import { LoginController     } from './auth/login.controller';
 
 import { GithubContributorService } from '../app/components/githubContributor/githubContributor.service';
 import { WebDevTecService         } from '../app/components/webDevTec/webDevTec.service';
@@ -41,6 +42,7 @@ angular.module('grupoA022015Client',
   .controller('LeaguesController', LeaguesController)
   .controller('LeagueController', LeagueController)
   .controller('TeamController', TeamController)
+  .controller('LoginController', LoginController)
 
   .directive('acmeNavbar', NavbarDirective)
   .directive('acmeMalarkey', MalarkeyDirective)

@@ -62,6 +62,12 @@ export function routerConfig ($stateProvider, $urlRouterProvider) {
       controllerAs: 'leagueCtrl'
     })
 
+    .state('login', {
+      url: '/login',
+      controller: 'LoginController',
+      controllerAs: 'loginCtrl'
+    })
+
   ;
 
   $urlRouterProvider.otherwise('/');
