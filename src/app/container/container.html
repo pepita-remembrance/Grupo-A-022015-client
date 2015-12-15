@@ -1,8 +1,8 @@
 <div layout="column" layout-fill ng-cloak>
   <section layout="row" flex>
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="containerCtrl.isDrawerOpen">
       <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+        <h1 class="md-toolbar-tools">Supergol</h1>
       </md-toolbar>
       <md-content layout-padding>
         <drawer-items></drawer-items>
@@ -20,11 +20,11 @@
 
       <md-toolbar>
         <div class="md-toolbar-tools">
-          <md-button class="md-icon-button" aria-label="Settings">
+          <md-button class="md-icon-button" aria-label="Menu" ng-click="containerCtrl.togleDrawer()">
             <md-icon md-svg-icon="assets/svg/ic_menu_white_18px.svg"></md-icon>
           </md-button>
           <h3>
-            <span>Supergol</span>
+            <span>{{containerCtrl.options.title}}</span>
           </h3>
           <span flex></span>
           <md-button aria-label="Search" ng-click="showSearch = !showSearch">

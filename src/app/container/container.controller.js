@@ -1,14 +1,15 @@
 export class ContainerController {
-  constructor($scope) {
+  constructor($scope, $mdSidenav) {
     'ngInject';
 
-    this.admin = [];
-    this.activity = [];
+    this.sideNav = $mdSidenav;
     this.options = {};
 
     $scope.setOptions = (opt)=>{
       this.options = opt;
     };
+
+    this.isDrawerOpen = true;
 
     this.menu = [
       {
@@ -34,6 +35,11 @@ export class ContainerController {
 
   setTitle(aTitle) {
     this.title = aTitle;
+  }
+
+  togleDrawer(){
+    //this.sideNav('left').toggle();
+    this.isDrawerOpen = !this.isDrawerOpen ;
   }
 
 
